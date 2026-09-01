@@ -2,7 +2,8 @@
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 persistent_apps=(
-  "/Applications/Firefox.app"
+  # "/Applications/Firefox.app"
+  "/Applications/Google Chrome.app"
   "/Applications/WezTerm.app"
 )
 
@@ -64,6 +65,7 @@ mkdir -p ~/.config/zsh
 ln -s ~/.config/system/zsh/.zshrc ~/.config/zsh/.zshrc
 ln -s ~/.config/system/Brewfile ~/.Brewfile
 ln -s ~/.config/system/gitconfig ~/.gitconfig
+ln -s ~/.config/system/gitignore ~/.gitignore
 ln -s ~/.config/system/nvim ~/.config
 ln -s ~/.config/system/wezterm ~/.config
 ln -s ~/.config/system/terminal ~/.config

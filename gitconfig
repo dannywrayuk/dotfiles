@@ -4,6 +4,7 @@
 [core]
     editor = nvim
     autocrlf = input
+    excludesfile = ~/.gitignore
 [push]
     autoSetupRemote = true
 [pull]
@@ -15,3 +16,5 @@
 [credential]
 	  helper = 
 	  helper = /usr/local/share/gcm-core/git-credential-manager
+[include]
+    path = ~/.gitconfig.local
