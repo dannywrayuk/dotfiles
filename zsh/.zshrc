@@ -15,6 +15,8 @@ setopt prompt_subst
 PROMPT='%F{green}➜%f '
 RPROMPT='%F{8}${vcs_info_msg_0_} %1~ %*%f'
 
+source <(fzf --zsh)
+
 # Load custom shell functions.
 source "$CONFIG_DIR/terminal/functions/all.zsh"
 
@@ -50,3 +52,27 @@ alias -- vim=nvim
 alias -- viml='nvim -c "'\''0"'
 alias -- switch='$SYS_CONFIG_DIR/install.sh'
 alias -- sourcez='source "$ZDOTDIR/.zshrc"'
+
+
+# handle key bindings
+bindkey -e
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+  zle-line-init()   { echoti smkx }
+  zle-line-finish() { echoti rmkx }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+bindkey "${terminfo[kcuu1]}" up-line-or-history      # Up
+bindkey "${terminfo[kcud1]}" down-line-or-history    # Down
+bindkey "${terminfo[kcub1]}" backward-char           # Left
+bindkey "${terminfo[kcuf1]}" forward-char            # Right
+bindkey '^[[A' up-line-or-history
+bindkey '^[[B' down-line-or-history
+bindkey '^[[D' backward-char
+bindkey '^[[C' forward-char
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}"  end-of-line
+bindkey "${terminfo[kdch1]}" delete-char
+bindkey '^?' backward-delete-char

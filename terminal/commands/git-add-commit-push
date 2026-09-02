@@ -1,43 +1,9 @@
 #!/usr/bin/env zsh
 
-function commit(){
-  echo "Committing..."
-  echo 'Commit Message:'
-  git add --all
-  read COMMIT
-  echo '\n'
-  git commit -m $COMMIT --no-verify
-}
-
-function push(){
-  echo "Pushing..."
-  git push --no-verify
-}
-
- function force_push(){
-  echo "Force Pushing..."
-  git push --force --no-verify
-}
-
-function dry_push(){
-  echo "Dry Pushing..."
-  git push --dry-run
-}
-
-OPTS="Commit and Push
-Commit
-Push
-Force Push
-Dry Push"
-
-case $(echo $OPTS | fzf) in
-    Commit) commit;;
-    Push) push;;
-    "Commit and Push") commit && push;;
-    "Force Push") force_push;;
-    "Dry Push") dry_push;;
-    *) echo "Invalid option";;
-esac
-echo "\n✅ Done."
-read
-
+echo "Committing..."
+echo 'Commit Message:'
+git add --all
+read COMMIT
+echo '\n'
+git commit -m $COMMIT --no-verify
+git push --no-verify

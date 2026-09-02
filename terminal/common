@@ -1,0 +1,4 @@
+Git commit push	git-add-commit-push
+Git force push	git push force --no-verify
+Git status	    git status
+Git rebase main	gcm && gl && gco - && grm

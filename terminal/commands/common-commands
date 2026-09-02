@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+
+typeset -a FILES
+FILES=(
+  "$CONFIG_DIR/system/terminal/common"
+  "$HOME/.commands-local"
+)
+
+typeset -A cmd_map
+typeset -a names
+
+for f in "${FILES[@]}"; do
+  [[ -f "$f" && -r "$f" ]] || continue
+  while IFS=$'\t' read -r name cmd || [[ -n "$name" ]]; do
+    [[ -z "$name" || "$name" == \#* || -z "$cmd" ]] && continue
+    [[ -z "${cmd_map[$name]+x}" ]] && names+=("$name")
+    cmd_map[$name]="$cmd"
+  done < "$f"
+done
+
+selected="$(print -l -- "${names[@]}" | fzf)"
+[[ -z "$selected" ]] && exit 0
+
+eval "${cmd_map[$selected]}"
+read
+
