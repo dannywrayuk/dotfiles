@@ -22,5 +22,6 @@ selected="$(print -l -- "${names[@]}" | fzf)"
 [[ -z "$selected" ]] && exit 0
 
 eval "${cmd_map[$selected]}"
-read
+echo "\n🧋"
+read -s -k
 

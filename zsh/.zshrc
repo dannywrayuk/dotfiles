@@ -53,7 +53,6 @@ alias -- viml='nvim -c "'\''0"'
 alias -- switch='$SYS_CONFIG_DIR/install.sh'
 alias -- sourcez='source "$ZDOTDIR/.zshrc"'
 
-
 # handle key bindings
 bindkey -e
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then

@@ -19,7 +19,6 @@ export HISTFILE="$ZDOTDIR/zsh_history"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
-
 [ -z $FNM_MULTISHELL_PATH ] && eval "$(fnm --log-level quiet env --use-on-cd)"
 
 [ -s "$ZDOTDIR/.zshlocal" ] && source "$ZDOTDIR/.zshlocal"
