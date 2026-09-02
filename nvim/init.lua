@@ -744,7 +744,6 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "graphql",
     "tsc",
-    "rnix",
     "gopls",
     "marksman",
   },
