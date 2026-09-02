@@ -3,7 +3,7 @@
 typeset -a FILES
 FILES=(
   "$CONFIG_DIR/system/terminal/common"
-  "$HOME/.commands-local"
+  "$CONFIG_DIR/.commands-local"
 )
 
 typeset -A cmd_map
