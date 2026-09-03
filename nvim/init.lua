@@ -157,6 +157,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "qf", "help" },
+	callback = function()
+		vim.cmd("wincmd L")
+	end,
+})
+
 -- Utilities
 local gh = function(x)
 	return "https://github.com/" .. x
